@@ -1,0 +1,46 @@
+{
+  "champion_model": "XGBoost",
+  "calibration": "Sigmoid (Platt Scaling) via CalibratedClassifierCV",
+  "operational_threshold": 0.13,
+  "test_metrics": {
+    "roc_auc": 0.6449,
+    "pr_auc": 0.1652,
+    "recall": 0.2836,
+    "precision": 0.179,
+    "accuracy": 0.8211,
+    "f1_score": 0.2195,
+    "confusion_matrix": {
+      "tn": 8357,
+      "fp": 1211,
+      "fn": 667,
+      "tp": 264
+    }
+  },
+  "model_comparison": [
+    {
+      "model_name": "LogisticRegression",
+      "roc_auc": 0.638,
+      "pr_auc": 0.1751,
+      "recall": 0.5164,
+      "precision": 0.1456,
+      "f1_score": 0.2271
+    },
+    {
+      "model_name": "RandomForest",
+      "roc_auc": 0.6436,
+      "pr_auc": 0.1646,
+      "recall": 0.4395,
+      "precision": 0.1574,
+      "f1_score": 0.2318
+    },
+    {
+      "model_name": "XGBoost",
+      "roc_auc": 0.6466,
+      "pr_auc": 0.1816,
+      "recall": 0.54,
+      "precision": 0.1443,
+      "f1_score": 0.2277
+    }
+  ],
+  "threshold_justification": "The standard classification threshold of 0.50 fails in heavily imbalanced clinical regimes (readmission incidence ~10%), yielding high false negatives. We selected an operational threshold of 0.13 calibrated on the validation cohort to maximize sensitivity/recall. In post-acute care management, the clinical and financial penalty of an unflagged readmission (emergency re-hospitalization, CMS HRRP penalties) vastly exceeds the cost of a preventive phone call or outpatient transition care intervention."
+}

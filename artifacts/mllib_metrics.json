@@ -1,0 +1,12 @@
+{
+  "engine": "Apache Spark MLlib (Distributed)",
+  "model_type": "RandomForestClassifier",
+  "trees": 80,
+  "max_depth": 8,
+  "train_samples": 56116,
+  "test_samples": 13874,
+  "roc_auc": 0.6403,
+  "pr_auc": 0.1599,
+  "accuracy": 0.9085,
+  "f1_score": 0.865
+}

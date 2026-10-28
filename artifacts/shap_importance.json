@@ -1,0 +1,77 @@
+[
+  {
+    "rank": 1,
+    "feature": "discharge_disposition_desc_Discharged to home",
+    "importance": 0.2282
+  },
+  {
+    "rank": 2,
+    "feature": "number_inpatient",
+    "importance": 0.1264
+  },
+  {
+    "rank": 3,
+    "feature": "age_midpoint",
+    "importance": 0.0742
+  },
+  {
+    "rank": 4,
+    "feature": "polypharmacy_count",
+    "importance": 0.0712
+  },
+  {
+    "rank": 5,
+    "feature": "time_in_hospital",
+    "importance": 0.0643
+  },
+  {
+    "rank": 6,
+    "feature": "num_lab_procedures",
+    "importance": 0.0603
+  },
+  {
+    "rank": 7,
+    "feature": "number_diagnoses",
+    "importance": 0.0499
+  },
+  {
+    "rank": 8,
+    "feature": "number_of_prior_visits",
+    "importance": 0.0491
+  },
+  {
+    "rank": 9,
+    "feature": "diag_1_category_Circulatory",
+    "importance": 0.0489
+  },
+  {
+    "rank": 10,
+    "feature": "discharge_disposition_desc_Discharged/transferred to another rehab fac including rehab units of a hospital",
+    "importance": 0.0306
+  },
+  {
+    "rank": 11,
+    "feature": "discharge_disposition_desc_Discharged/transferred to home with home health service",
+    "importance": 0.0295
+  },
+  {
+    "rank": 12,
+    "feature": "discharge_disposition_desc_Discharged/transferred to SNF",
+    "importance": 0.0277
+  },
+  {
+    "rank": 13,
+    "feature": "num_medications",
+    "importance": 0.0274
+  },
+  {
+    "rank": 14,
+    "feature": "diag_1_category_Respiratory",
+    "importance": 0.0258
+  },
+  {
+    "rank": 15,
+    "feature": "age_[50-60)",
+    "importance": 0.0214
+  }
+]

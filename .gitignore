@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Caches & Test
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment Variables & Local Config
+.env
+.env.local
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# Node.js & Frontend Build Outputs
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.oxlintrc.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Spark Temporary Files & Large Synthetic Datasets (>50MB)
+data/benchmark_*.csv
+data/bronze/
+data/silver/
+data/gold/
+*.crc
+.spark-staging/
+metastore_db/
+derby.log
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+~$*
+.idea/
+.vscode/
+*.swp
+*.swo

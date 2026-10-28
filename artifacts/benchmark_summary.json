@@ -1,0 +1,29 @@
+[
+  {
+    "rows": 100000,
+    "rows_label": "100K",
+    "pandas_seconds": 0.591,
+    "pyspark_seconds": 4.567,
+    "pyspark_speedup_factor": 0.13,
+    "pandas_throughput_rows_per_sec": 169204.7,
+    "pyspark_throughput_rows_per_sec": 21896.2
+  },
+  {
+    "rows": 500000,
+    "rows_label": "500K",
+    "pandas_seconds": 2.781,
+    "pyspark_seconds": 2.339,
+    "pyspark_speedup_factor": 1.19,
+    "pandas_throughput_rows_per_sec": 179791.4,
+    "pyspark_throughput_rows_per_sec": 213766.6
+  },
+  {
+    "rows": 1000000,
+    "rows_label": "1M",
+    "pandas_seconds": 5.825,
+    "pyspark_seconds": 3.112,
+    "pyspark_speedup_factor": 1.87,
+    "pandas_throughput_rows_per_sec": 171673.8,
+    "pyspark_throughput_rows_per_sec": 321336.8
+  }
+]

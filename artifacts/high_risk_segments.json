@@ -1,0 +1,112 @@
+[
+  {
+    "rank": 1,
+    "primary_diagnosis": "Circulatory",
+    "discharge_disposition": "Discharged/transferred to another rehab fac including rehab units of a hospital",
+    "age_group": "[60-70)",
+    "prior_inpatient_status": "No Prior Inpatient",
+    "segment_size": 103,
+    "readmitted_count": 40,
+    "readmission_rate_pct": 38.83,
+    "avg_length_of_stay": 5.94
+  },
+  {
+    "rank": 2,
+    "primary_diagnosis": "Injury",
+    "discharge_disposition": "Discharged/transferred to another rehab fac including rehab units of a hospital",
+    "age_group": "[60-70)",
+    "prior_inpatient_status": "No Prior Inpatient",
+    "segment_size": 55,
+    "readmitted_count": 18,
+    "readmission_rate_pct": 32.73,
+    "avg_length_of_stay": 5.49
+  },
+  {
+    "rank": 3,
+    "primary_diagnosis": "Respiratory",
+    "discharge_disposition": "Discharged/transferred to SNF",
+    "age_group": "[70-80)",
+    "prior_inpatient_status": "Prior Inpatient Visit",
+    "segment_size": 50,
+    "readmitted_count": 16,
+    "readmission_rate_pct": 32.0,
+    "avg_length_of_stay": 6.3
+  },
+  {
+    "rank": 4,
+    "primary_diagnosis": "Circulatory",
+    "discharge_disposition": "Discharged/transferred to another rehab fac including rehab units of a hospital",
+    "age_group": "[70-80)",
+    "prior_inpatient_status": "No Prior Inpatient",
+    "segment_size": 143,
+    "readmitted_count": 45,
+    "readmission_rate_pct": 31.47,
+    "avg_length_of_stay": 5.82
+  },
+  {
+    "rank": 5,
+    "primary_diagnosis": "Injury",
+    "discharge_disposition": "Discharged/transferred to another rehab fac including rehab units of a hospital",
+    "age_group": "[80-90)",
+    "prior_inpatient_status": "No Prior Inpatient",
+    "segment_size": 106,
+    "readmitted_count": 30,
+    "readmission_rate_pct": 28.3,
+    "avg_length_of_stay": 5.19
+  },
+  {
+    "rank": 6,
+    "primary_diagnosis": "Other",
+    "discharge_disposition": "Discharged/transferred to SNF",
+    "age_group": "[60-70)",
+    "prior_inpatient_status": "Prior Inpatient Visit",
+    "segment_size": 54,
+    "readmitted_count": 15,
+    "readmission_rate_pct": 27.78,
+    "avg_length_of_stay": 6.11
+  },
+  {
+    "rank": 7,
+    "primary_diagnosis": "Circulatory",
+    "discharge_disposition": "Discharged/transferred to another rehab fac including rehab units of a hospital",
+    "age_group": "[50-60)",
+    "prior_inpatient_status": "No Prior Inpatient",
+    "segment_size": 75,
+    "readmitted_count": 19,
+    "readmission_rate_pct": 25.33,
+    "avg_length_of_stay": 6.43
+  },
+  {
+    "rank": 8,
+    "primary_diagnosis": "Injury",
+    "discharge_disposition": "Discharged/transferred to another rehab fac including rehab units of a hospital",
+    "age_group": "[70-80)",
+    "prior_inpatient_status": "No Prior Inpatient",
+    "segment_size": 113,
+    "readmitted_count": 28,
+    "readmission_rate_pct": 24.78,
+    "avg_length_of_stay": 5.28
+  },
+  {
+    "rank": 9,
+    "primary_diagnosis": "Other",
+    "discharge_disposition": "Discharged/transferred to SNF",
+    "age_group": "[80-90)",
+    "prior_inpatient_status": "Prior Inpatient Visit",
+    "segment_size": 99,
+    "readmitted_count": 24,
+    "readmission_rate_pct": 24.24,
+    "avg_length_of_stay": 6.48
+  },
+  {
+    "rank": 10,
+    "primary_diagnosis": "Musculoskeletal",
+    "discharge_disposition": "Discharged/transferred to another rehab fac including rehab units of a hospital",
+    "age_group": "[70-80)",
+    "prior_inpatient_status": "No Prior Inpatient",
+    "segment_size": 108,
+    "readmitted_count": 26,
+    "readmission_rate_pct": 24.07,
+    "avg_length_of_stay": 4.57
+  }
+]

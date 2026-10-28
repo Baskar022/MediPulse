@@ -1,0 +1,144 @@
+{
+  "race": [
+    {
+      "subgroup": "Caucasian",
+      "sample_size": 7855,
+      "actual_readmission_rate_pct": 9.12,
+      "roc_auc": 0.6344,
+      "recall": 0.2807,
+      "precision": 0.1742
+    },
+    {
+      "subgroup": "AfricanAmerican",
+      "sample_size": 1879,
+      "actual_readmission_rate_pct": 8.25,
+      "roc_auc": 0.6722,
+      "recall": 0.2968,
+      "precision": 0.1855
+    },
+    {
+      "subgroup": "Unknown",
+      "sample_size": 278,
+      "actual_readmission_rate_pct": 8.99,
+      "roc_auc": 0.6504,
+      "recall": 0.24,
+      "precision": 0.2143
+    },
+    {
+      "subgroup": "Hispanic",
+      "sample_size": 229,
+      "actual_readmission_rate_pct": 8.73,
+      "roc_auc": 0.7627,
+      "recall": 0.35,
+      "precision": 0.3182
+    },
+    {
+      "subgroup": "Other",
+      "sample_size": 183,
+      "actual_readmission_rate_pct": 5.46,
+      "roc_auc": 0.5595,
+      "recall": 0.1,
+      "precision": 0.0833
+    },
+    {
+      "subgroup": "Asian",
+      "sample_size": 75,
+      "actual_readmission_rate_pct": 6.67,
+      "roc_auc": 0.8743,
+      "recall": 0.6,
+      "precision": 0.2727
+    }
+  ],
+  "gender": [
+    {
+      "subgroup": "Female",
+      "sample_size": 5645,
+      "actual_readmission_rate_pct": 8.4,
+      "roc_auc": 0.6571,
+      "recall": 0.308,
+      "precision": 0.1706
+    },
+    {
+      "subgroup": "Male",
+      "sample_size": 4854,
+      "actual_readmission_rate_pct": 9.41,
+      "roc_auc": 0.6335,
+      "recall": 0.2582,
+      "precision": 0.1906
+    }
+  ],
+  "age": [
+    {
+      "subgroup": "[70-80)",
+      "sample_size": 2706,
+      "actual_readmission_rate_pct": 9.53,
+      "roc_auc": 0.6244,
+      "recall": 0.3837,
+      "precision": 0.1626
+    },
+    {
+      "subgroup": "[60-70)",
+      "sample_size": 2252,
+      "actual_readmission_rate_pct": 9.06,
+      "roc_auc": 0.655,
+      "recall": 0.2451,
+      "precision": 0.2
+    },
+    {
+      "subgroup": "[50-60)",
+      "sample_size": 1895,
+      "actual_readmission_rate_pct": 7.28,
+      "roc_auc": 0.6611,
+      "recall": 0.2246,
+      "precision": 0.2263
+    },
+    {
+      "subgroup": "[80-90)",
+      "sample_size": 1681,
+      "actual_readmission_rate_pct": 10.47,
+      "roc_auc": 0.6393,
+      "recall": 0.3068,
+      "precision": 0.1709
+    },
+    {
+      "subgroup": "[40-50)",
+      "sample_size": 1031,
+      "actual_readmission_rate_pct": 8.83,
+      "roc_auc": 0.6236,
+      "recall": 0.1758,
+      "precision": 0.186
+    },
+    {
+      "subgroup": "[30-40)",
+      "sample_size": 385,
+      "actual_readmission_rate_pct": 5.97,
+      "roc_auc": 0.6489,
+      "recall": 0.2609,
+      "precision": 0.1818
+    },
+    {
+      "subgroup": "[90-100)",
+      "sample_size": 271,
+      "actual_readmission_rate_pct": 9.59,
+      "roc_auc": 0.5516,
+      "recall": 0.1923,
+      "precision": 0.1786
+    },
+    {
+      "subgroup": "[20-30)",
+      "sample_size": 185,
+      "actual_readmission_rate_pct": 6.49,
+      "roc_auc": 0.7341,
+      "recall": 0.25,
+      "precision": 0.2143
+    },
+    {
+      "subgroup": "[10-20)",
+      "sample_size": 68,
+      "actual_readmission_rate_pct": 2.94,
+      "roc_auc": 0.9697,
+      "recall": 0.0,
+      "precision": 0.0
+    }
+  ]
+}
