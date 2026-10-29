@@ -151,28 +151,23 @@ MediPulse/
 
 ---
 
-## 🚀 Quickstart Guide
+## 🚀 Quickstart & Presentation Deployment
 
-### Prerequisites
-- **OS:** Windows 10/11 (or Linux / macOS)
-- **Python:** 3.10+ (tested on Python 3.14)
-- **Node.js:** v18+ & npm
-- **Java:** JDK 11, 17, 21, or 25 (`JAVA_HOME` configured)
+### Option 1: Live Presentation Tunnel (Instant Share for Evaluators)
+Double-click `share_live_presentation.bat` or run:
+```cmd
+share_live_presentation.bat
+```
+Generates an encrypted public HTTPS link via `localtunnel` so evaluators and professors can interact with your running app from their own phones, tablets, or laptops during the viva!
 
-### Option 1: One-Click Execution (Windows)
+### Option 2: 1-Click Execution (Windows Local Mode)
 Double-click `run_all.bat` or run in terminal:
 ```cmd
 run_all.bat
 ```
-This script automatically:
-1. Installs all required Python dependencies.
-2. Downloads and verifies the UCI dataset.
-3. Executes the PySpark Bronze → Silver → Gold Medallion pipeline.
-4. Generates Spark SQL analytics and distributed MLlib metrics.
-5. Runs the 100k/500k/1M scalability benchmarks.
-6. Trains the calibrated XGBoost model and calculates SHAP values.
-7. Executes `pytest` to verify pipeline and API integrity.
-8. Launches both the FastAPI backend (`http://127.0.0.1:8000`) and React frontend (`http://localhost:5173`).
+
+### Option 3: Cloud Deployment (Render / Hugging Face / Docker)
+See our dedicated [Deployment Guide](docs/deployment_guide.md) for step-by-step instructions on deploying to Render.com (via `render.yaml`), Hugging Face Spaces (via `Dockerfile`), or Docker Compose.
 
 ### Option 2: Step-by-Step Manual Execution
 
