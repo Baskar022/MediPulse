@@ -14,9 +14,13 @@ import logging
 import joblib
 import pandas as pd
 import numpy as np
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
+try:
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+except ImportError:
+    matplotlib = None
+    plt = None
 import shap
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
