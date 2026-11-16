@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   Terminal, Play, Clock, CheckCircle2, AlertCircle, BarChart3,
   Layers, Code2, RefreshCw, FileText, ChevronRight
@@ -18,6 +18,7 @@ export default function SparkSqlWorkspace() {
   const [executing, setExecuting] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const activeReqRef = useRef(0);
 
   useEffect(() => {
     async function load() {
@@ -26,7 +27,7 @@ export default function SparkSqlWorkspace() {
         const qList = await fetchSqlQueries();
         setQueries(qList);
         if (qList.length > 0) {
-          // Auto execute the first default
+          // Auto execute default query
           runQuery('readmit_by_diagnosis');
         }
       } catch (err) {
@@ -42,13 +43,21 @@ export default function SparkSqlWorkspace() {
     setSelectedQueryId(qId);
     setExecuting(true);
     setError(null);
+    const reqId = ++activeReqRef.current;
+
     try {
       const res = await executeSqlQuery(qId);
-      setResult(res);
+      if (reqId === activeReqRef.current) {
+        setResult(res);
+      }
     } catch (err) {
-      setError(err.message);
+      if (reqId === activeReqRef.current) {
+        setError(err.message || 'Query execution failed');
+      }
     } finally {
-      setExecuting(false);
+      if (reqId === activeReqRef.current) {
+        setExecuting(false);
+      }
     }
   };
 

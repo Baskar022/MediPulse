@@ -52,7 +52,7 @@ export default function Sidebar({ activeNav, setActiveNav, isDemoMode, setIsDemo
         </div>
       </div>
 
-      {/* Guided Examiner Demo Mode Toggle */}
+      {/* Guided Walkthrough Mode Toggle */}
       <div className="p-3 bg-slate-950/50 border-b border-slate-800/80">
         <button
           onClick={() => {
@@ -67,7 +67,7 @@ export default function Sidebar({ activeNav, setActiveNav, isDemoMode, setIsDemo
         >
           <div className="flex items-center gap-2">
             <Presentation className="w-4 h-4 text-amber-300" />
-            <span>Examiner Demo Mode</span>
+            <span>Walkthrough Mode</span>
           </div>
           <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-black/30">
             {isDemoMode ? 'Active' : 'Start'}

@@ -13,7 +13,7 @@ export default function TopNav({ activeNav, onRefresh }) {
     transparency: 'Model Governance, PR/ROC Curves & Fairness',
     storage: 'Storage Lakehouse & Parquet Artifact Tree',
     system: 'Platform Diagnostic & Spark JVM Monitor',
-    demo: 'Guided 7-Minute Examiner Demonstration Mode'
+    demo: 'Interactive 7-Minute Walkthrough Mode'
   };
 
   return (
