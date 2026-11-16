@@ -1,38 +1,63 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import TopNav from './components/TopNav';
 import Dashboard from './components/Dashboard';
 import RiskPredictor from './components/RiskPredictor';
 import PopulationInsights from './components/PopulationInsights';
 import ModelTransparency from './components/ModelTransparency';
 import BigDataPipeline from './components/BigDataPipeline';
+import DataExplorer from './components/DataExplorer';
+import InteractivePipeline from './components/InteractivePipeline';
+import SparkSqlWorkspace from './components/SparkSqlWorkspace';
+import StorageExplorer from './components/StorageExplorer';
+import SystemMonitor from './components/SystemMonitor';
+import GuidedDemo from './components/GuidedDemo';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeNav, setActiveNav] = useState('overview');
+  const [isDemoMode, setIsDemoMode] = useState(false);
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
+
+  const handleRefresh = () => {
+    setRefreshTrigger((prev) => prev + 1);
+  };
+
+  const handleDemoNavigate = (targetTab) => {
+    setActiveNav(targetTab);
+    setIsDemoMode(false);
+  };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-900">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+    <div className="flex h-screen bg-slate-50 font-sans text-slate-900 overflow-hidden">
+      {/* Persistent Enterprise Left Sidebar */}
+      <Sidebar
+        activeNav={activeNav}
+        setActiveNav={setActiveNav}
+        isDemoMode={isDemoMode}
+        setIsDemoMode={setIsDemoMode}
+      />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {activeTab === 'dashboard' && <Dashboard />}
-        {activeTab === 'predictor' && <RiskPredictor />}
-        {activeTab === 'population' && <PopulationInsights />}
-        {activeTab === 'transparency' && <ModelTransparency />}
-        {activeTab === 'pipeline' && <BigDataPipeline />}
-      </main>
+      {/* Main Content Workspace with TopNav */}
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        <TopNav activeNav={isDemoMode ? 'demo' : activeNav} onRefresh={handleRefresh} />
 
-      <footer className="bg-white border-t border-slate-200 py-6 mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-slate-800">MediPulse Analytics Platform</span>
-            <span>•</span>
-            <span>Dual Academic Curriculum: Big Data Analytics & AIML in Healthcare</span>
+        <main className="flex-1 overflow-y-auto px-6 py-8">
+          <div className="max-w-7xl mx-auto pb-12">
+            {isDemoMode && <GuidedDemo onNavigateTab={handleDemoNavigate} />}
+
+            {!isDemoMode && activeNav === 'overview' && <Dashboard key={refreshTrigger} />}
+            {!isDemoMode && activeNav === 'predictor' && <RiskPredictor key={refreshTrigger} />}
+            {!isDemoMode && activeNav === 'population' && <PopulationInsights key={refreshTrigger} />}
+            {!isDemoMode && activeNav === 'explorer' && <DataExplorer key={refreshTrigger} />}
+            {!isDemoMode && activeNav === 'pipeline' && <InteractivePipeline key={refreshTrigger} />}
+            {!isDemoMode && activeNav === 'spark_sql' && <SparkSqlWorkspace key={refreshTrigger} />}
+            {!isDemoMode && activeNav === 'benchmark' && <BigDataPipeline key={refreshTrigger} />}
+            {!isDemoMode && activeNav === 'transparency' && <ModelTransparency key={refreshTrigger} />}
+            {!isDemoMode && activeNav === 'storage' && <StorageExplorer key={refreshTrigger} />}
+            {!isDemoMode && activeNav === 'system' && <SystemMonitor key={refreshTrigger} />}
           </div>
-          <div>
-            Built with Apache PySpark, Parquet Lakehouse, XGBoost, SHAP & FastAPI
-          </div>
-        </div>
-      </footer>
+        </main>
+      </div>
     </div>
   );
 }

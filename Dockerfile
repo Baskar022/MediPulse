@@ -20,8 +20,10 @@ ENV PORT=8000
 COPY requirements_prod.txt ./requirements_prod.txt
 RUN pip install --no-cache-dir -r requirements_prod.txt
 
-# Copy application files, trained models, and artifacts
+# Copy application files, pipeline, data, trained models, and artifacts
 COPY backend/ ./backend/
+COPY pipeline/ ./pipeline/
+COPY data/ ./data/
 COPY ml/ ./ml/
 COPY artifacts/ ./artifacts/
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist

@@ -20,6 +20,16 @@ sys.path.insert(0, BASE_DIR)
 
 from backend.schemas import PatientInput, PredictionResponse, HealthResponse
 from ml.explain import explain_single_patient, load_artifacts
+from backend.jobs import (
+    get_all_stages, trigger_stage_execution, get_job_status, get_job_history
+)
+from backend.explorer import (
+    get_dataset_stats, preview_dataset, explore_storage_lakehouse
+)
+from backend.sql_engine import (
+    get_available_queries, execute_sql_query
+)
+from backend.monitor import get_system_telemetry
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("backend.main")
@@ -201,6 +211,132 @@ def get_benchmark_results():
 
     with open(bench_path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+# ==============================================================================
+# PHASE 2 & 7: DATA EXPLORER & STORAGE ENDPOINTS
+# ==============================================================================
+
+@app.get("/api/data/layers")
+def get_available_layers():
+    """Returns metadata and statistics for all Medallion layers (Raw, Bronze, Silver, Gold)."""
+    layers = ["raw", "bronze", "silver", "gold"]
+    return {l: get_dataset_stats(l) for l in layers}
+
+
+@app.get("/api/data/stats/{layer}")
+def get_layer_statistics(layer: str):
+    """Returns deep schema summary, null percentages, and distributions for a layer."""
+    try:
+        return get_dataset_stats(layer)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get("/api/data/preview/{layer}")
+def preview_layer_data(
+    layer: str,
+    page: int = 1,
+    page_size: int = 25,
+    search: Optional[str] = None,
+    sort_by: Optional[str] = None,
+    sort_desc: bool = False
+):
+    """Server-side paginated preview of actual Parquet/CSV data."""
+    try:
+        return preview_dataset(
+            layer=layer,
+            page=page,
+            page_size=min(page_size, 100),
+            search=search,
+            sort_by=sort_by,
+            sort_desc=sort_desc
+        )
+    except Exception as e:
+        logger.error(f"Error previewing layer {layer}: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get("/api/storage/explorer")
+def get_storage_explorer():
+    """Scans authorized data/ and artifacts/ directories for file metadata and sizes."""
+    try:
+        return explore_storage_lakehouse()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ==============================================================================
+# PHASE 3: INTERACTIVE BDA PIPELINE RUNNER ENDPOINTS
+# ==============================================================================
+
+@app.get("/api/pipeline/stages")
+def get_pipeline_stages():
+    """Returns all pipeline stages, their dependencies, and output status."""
+    return get_all_stages()
+
+
+@app.post("/api/pipeline/run/{stage_id}")
+def run_pipeline_stage(stage_id: str):
+    """Triggers background execution of a pipeline stage."""
+    try:
+        job = trigger_stage_execution(stage_id)
+        return job
+    except RuntimeError as re:
+        raise HTTPException(status_code=409, detail=str(re))
+    except ValueError as ve:
+        raise HTTPException(status_code=400, detail=str(ve))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/pipeline/jobs/{job_id}")
+def get_pipeline_job_status(job_id: str):
+    """Polls real-time job execution status, duration, and logs."""
+    job = get_job_status(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail=f"Job ID '{job_id}' not found.")
+    return job
+
+
+@app.get("/api/pipeline/history")
+def get_pipeline_execution_history():
+    """Returns execution history of recent pipeline stages."""
+    return get_job_history()
+
+
+# ==============================================================================
+# PHASE 4: SPARK SQL ANALYTICS WORKSPACE ENDPOINTS
+# ==============================================================================
+
+@app.get("/api/sql/queries")
+def get_sql_query_templates():
+    """Returns available predefined Spark SQL queries with clinical descriptions."""
+    return get_available_queries()
+
+
+@app.post("/api/sql/execute/{query_id}")
+def execute_spark_sql(query_id: str):
+    """Executes a predefined Spark SQL query on Gold layer data and returns tabular and chart data."""
+    try:
+        return execute_sql_query(query_id)
+    except FileNotFoundError as fe:
+        raise HTTPException(status_code=404, detail=str(fe))
+    except ValueError as ve:
+        raise HTTPException(status_code=400, detail=str(ve))
+    except Exception as e:
+        logger.error(f"SQL execution failure: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ==============================================================================
+# PHASE 8: SYSTEM MONITOR & DIAGNOSTICS ENDPOINT
+# ==============================================================================
+
+@app.get("/api/system/monitor")
+def get_system_monitor():
+    """Returns real host telemetry: Python, PySpark, JVM, OS, and memory metrics."""
+    return get_system_telemetry()
 
 
 # Mount built React frontend distribution (if present) for unified single-service deployment

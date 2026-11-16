@@ -29,9 +29,6 @@ yarn-error.log*
 
 # Spark Temporary Files & Large Synthetic Datasets (>50MB)
 data/benchmark_*.csv
-data/bronze/
-data/silver/
-data/gold/
 *.crc
 .spark-staging/
 metastore_db/
