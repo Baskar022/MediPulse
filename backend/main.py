@@ -13,6 +13,7 @@ from typing import Dict, Any, Optional
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 # Add project root to sys.path
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -341,8 +342,29 @@ def get_system_monitor():
 
 # Mount built React frontend distribution (if present) for unified single-service deployment
 FRONTEND_DIST = os.path.join(BASE_DIR, "frontend", "dist")
+INDEX_HTML = os.path.join(FRONTEND_DIST, "index.html")
+
 if os.path.exists(FRONTEND_DIST):
-    app.mount("/", StaticFiles(directory=FRONTEND_DIST, html=True), name="frontend")
+    # Mount hashed assets under /assets for high-performance delivery
+    assets_dir = os.path.join(FRONTEND_DIST, "assets")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
+    # Serve index.html with strict NO-CACHE headers so browsers never retain stale v1.0 bundles
+    @app.get("/{full_path:path}")
+    def serve_frontend(full_path: str):
+        file_path = os.path.join(FRONTEND_DIST, full_path)
+        if full_path and os.path.isfile(file_path):
+            return FileResponse(file_path)
+
+        if os.path.exists(INDEX_HTML):
+            resp = FileResponse(INDEX_HTML)
+            resp.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, max-age=0"
+            resp.headers["Pragma"] = "no-cache"
+            resp.headers["Expires"] = "0"
+            return resp
+
+        raise HTTPException(status_code=404, detail="Frontend index.html not found.")
 
 
 if __name__ == "__main__":
