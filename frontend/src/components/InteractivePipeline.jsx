@@ -272,8 +272,12 @@ export default function InteractivePipeline() {
                     <td className="py-2.5 px-4 text-right text-slate-700 font-bold">
                       {j.duration_seconds ? `${j.duration_seconds}s` : '--'}
                     </td>
-                    <td className="py-2.5 px-4 text-slate-500 font-sans">
-                      {j.started_at ? new Date(j.started_at).toLocaleTimeString() : '--'}
+                    <td className="py-2.5 px-4 text-slate-700 font-sans font-medium whitespace-nowrap">
+                      {j.started_at ? (
+                        typeof j.started_at === 'string' && j.started_at.includes('IST')
+                          ? j.started_at
+                          : new Date(j.started_at_iso || j.started_at).toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' IST'
+                      ) : '--'}
                     </td>
                     <td className="py-2.5 px-4 text-slate-600 truncate max-w-xs font-sans">
                       {j.message || j.error || '--'}

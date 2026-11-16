@@ -10,46 +10,11 @@
   },
   "by_age": [
     {
-      "label": "[0-10)",
-      "total_count": 153,
-      "readmitted_count": 3,
-      "readmission_rate_pct": 1.96,
-      "avg_stay_days": 2.57
-    },
-    {
-      "label": "[10-20)",
-      "total_count": 534,
-      "readmitted_count": 26,
-      "readmission_rate_pct": 4.87,
-      "avg_stay_days": 2.87
-    },
-    {
-      "label": "[20-30)",
-      "total_count": 1121,
-      "readmitted_count": 83,
-      "readmission_rate_pct": 7.4,
-      "avg_stay_days": 3.46
-    },
-    {
-      "label": "[30-40)",
-      "total_count": 2692,
-      "readmitted_count": 188,
-      "readmission_rate_pct": 6.98,
-      "avg_stay_days": 3.63
-    },
-    {
-      "label": "[40-50)",
-      "total_count": 6828,
-      "readmitted_count": 506,
-      "readmission_rate_pct": 7.41,
-      "avg_stay_days": 3.85
-    },
-    {
-      "label": "[50-60)",
-      "total_count": 12351,
-      "readmitted_count": 880,
-      "readmission_rate_pct": 7.12,
-      "avg_stay_days": 3.98
+      "label": "[70-80)",
+      "total_count": 17751,
+      "readmitted_count": 1817,
+      "readmission_rate_pct": 10.24,
+      "avg_stay_days": 4.51
     },
     {
       "label": "[60-70)",
@@ -59,11 +24,11 @@
       "avg_stay_days": 4.24
     },
     {
-      "label": "[70-80)",
-      "total_count": 17751,
-      "readmitted_count": 1817,
-      "readmission_rate_pct": 10.24,
-      "avg_stay_days": 4.51
+      "label": "[50-60)",
+      "total_count": 12351,
+      "readmitted_count": 880,
+      "readmission_rate_pct": 7.12,
+      "avg_stay_days": 3.98
     },
     {
       "label": "[80-90)",
@@ -73,11 +38,46 @@
       "avg_stay_days": 4.78
     },
     {
+      "label": "[40-50)",
+      "total_count": 6828,
+      "readmitted_count": 506,
+      "readmission_rate_pct": 7.41,
+      "avg_stay_days": 3.85
+    },
+    {
+      "label": "[30-40)",
+      "total_count": 2692,
+      "readmitted_count": 188,
+      "readmission_rate_pct": 6.98,
+      "avg_stay_days": 3.63
+    },
+    {
       "label": "[90-100)",
       "total_count": 1761,
       "readmitted_count": 168,
       "readmission_rate_pct": 9.54,
       "avg_stay_days": 4.82
+    },
+    {
+      "label": "[20-30)",
+      "total_count": 1121,
+      "readmitted_count": 83,
+      "readmission_rate_pct": 7.4,
+      "avg_stay_days": 3.46
+    },
+    {
+      "label": "[10-20)",
+      "total_count": 534,
+      "readmitted_count": 26,
+      "readmission_rate_pct": 4.87,
+      "avg_stay_days": 2.87
+    },
+    {
+      "label": "[0-10)",
+      "total_count": 153,
+      "readmitted_count": 3,
+      "readmission_rate_pct": 1.96,
+      "avg_stay_days": 2.57
     }
   ],
   "by_race": [
@@ -302,7 +302,7 @@
       "total_count": 40,
       "readmitted_count": 18,
       "readmission_rate_pct": 45.0,
-      "avg_stay_days": 6.68
+      "avg_stay_days": 6.67
     },
     {
       "label": "Discharged/transferred to a nursing facility certified under Medicaid but not Medicare",
@@ -421,13 +421,6 @@
   ],
   "by_a1c": [
     {
-      "label": "None",
-      "total_count": 57144,
-      "readmitted_count": 5206,
-      "readmission_rate_pct": 9.11,
-      "avg_stay_days": 4.17
-    },
-    {
       "label": ">8",
       "total_count": 6239,
       "readmitted_count": 509,
@@ -467,34 +460,39 @@
   ],
   "by_stay_duration": [
     {
-      "label": "1-2 Days",
-      "total_count": 22653,
-      "readmitted_count": 1621,
-      "readmission_rate_pct": 7.16
-    },
-    {
       "label": "3-5 Days",
       "total_count": 28615,
       "readmitted_count": 2516,
-      "readmission_rate_pct": 8.79
+      "readmission_rate_pct": 8.79,
+      "avg_stay_days": 3.8
+    },
+    {
+      "label": "1-2 Days",
+      "total_count": 22653,
+      "readmitted_count": 1621,
+      "readmission_rate_pct": 7.16,
+      "avg_stay_days": 1.54
     },
     {
       "label": "6-8 Days",
       "total_count": 11796,
       "readmitted_count": 1346,
-      "readmission_rate_pct": 11.41
+      "readmission_rate_pct": 11.41,
+      "avg_stay_days": 6.81
     },
     {
       "label": "9-11 Days",
       "total_count": 4607,
       "readmitted_count": 534,
-      "readmission_rate_pct": 11.59
+      "readmission_rate_pct": 11.59,
+      "avg_stay_days": 9.84
     },
     {
       "label": "12-14 Days",
       "total_count": 2319,
       "readmitted_count": 268,
-      "readmission_rate_pct": 11.56
+      "readmission_rate_pct": 11.56,
+      "avg_stay_days": 12.88
     }
   ]
 }

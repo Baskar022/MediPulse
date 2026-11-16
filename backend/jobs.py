@@ -12,12 +12,23 @@ import logging
 import subprocess
 import threading
 from typing import Dict, Any, Optional, List
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 logger = logging.getLogger("backend.jobs")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PYTHON_EXE = sys.executable
+
+# Indian Standard Time (IST: UTC + 5:30)
+IST_TZ = timezone(timedelta(hours=5, minutes=30))
+
+def get_current_ist_str() -> str:
+    """Returns current timestamp formatted in Indian Standard Time (IST)."""
+    return datetime.now(IST_TZ).strftime("%I:%M:%S %p IST")
+
+def get_current_ist_iso() -> str:
+    """Returns current ISO timestamp with +05:30 IST offset."""
+    return datetime.now(IST_TZ).isoformat()
 
 # Supported Pipeline Stages and their corresponding scripts & dependencies
 STAGE_DEFINITIONS = {
@@ -127,7 +138,8 @@ def run_stage_background(job_id: str, stage_id: str):
     with _LOCK:
         job_record = ACTIVE_JOBS[job_id]
         job_record["status"] = "running"
-        job_record["started_at"] = datetime.now().isoformat()
+        job_record["started_at"] = get_current_ist_str()
+        job_record["started_at_iso"] = get_current_ist_iso()
 
     start_time = time.perf_counter()
     logs: List[str] = []
@@ -164,7 +176,8 @@ def run_stage_background(job_id: str, stage_id: str):
 
         with _LOCK:
             job_record["duration_seconds"] = duration
-            job_record["completed_at"] = datetime.now().isoformat()
+            job_record["completed_at"] = get_current_ist_str()
+            job_record["completed_at_iso"] = get_current_ist_iso()
             job_record["exit_code"] = exit_code
 
             if exit_code == 0:
@@ -185,7 +198,8 @@ def run_stage_background(job_id: str, stage_id: str):
         with _LOCK:
             job_record["status"] = "failed"
             job_record["duration_seconds"] = duration
-            job_record["completed_at"] = datetime.now().isoformat()
+            job_record["completed_at"] = get_current_ist_str()
+            job_record["completed_at_iso"] = get_current_ist_iso()
             job_record["error"] = str(e)
             job_record["message"] = f"Execution failed: {str(e)}"
             JOB_HISTORY.insert(0, dict(job_record))
@@ -210,7 +224,8 @@ def trigger_stage_execution(stage_id: str) -> Dict[str, Any]:
             "stage_id": stage_id,
             "stage_name": meta["name"],
             "status": "pending",
-            "created_at": datetime.now().isoformat(),
+            "created_at": get_current_ist_str(),
+            "created_at_iso": get_current_ist_iso(),
             "started_at": None,
             "completed_at": None,
             "duration_seconds": None,

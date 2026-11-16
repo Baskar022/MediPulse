@@ -3,10 +3,10 @@
   "model_type": "RandomForestClassifier",
   "trees": 80,
   "max_depth": 8,
-  "train_samples": 56116,
-  "test_samples": 13874,
-  "roc_auc": 0.6403,
-  "pr_auc": 0.1599,
-  "accuracy": 0.9085,
-  "f1_score": 0.865
+  "train_samples": 55992,
+  "test_samples": 13998,
+  "roc_auc": 0.6073,
+  "pr_auc": 0.2154,
+  "accuracy": 0.9102,
+  "f1_score": 0.0
 }
