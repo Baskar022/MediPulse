@@ -70,10 +70,10 @@ export default function SparkSqlWorkspace() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
             <Terminal className="w-6 h-6 text-sky-600" />
-            <span>Apache Spark SQL Analytics Workspace</span>
+            <span>Clinical Query Workspace</span>
           </h1>
           <p className="text-sm text-slate-500">
-            Execute parameterized Spark SQL query templates directly on the Gold Lakehouse Parquet partition.
+            Execute clinical analytics queries and cohort aggregations directly across standardized patient encounter partitions.
           </p>
         </div>
 

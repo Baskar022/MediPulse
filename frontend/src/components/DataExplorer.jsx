@@ -87,10 +87,10 @@ export default function DataExplorer() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
             <Table2 className="w-6 h-6 text-sky-600" />
-            <span>Medallion Data Lakehouse Explorer</span>
+            <span>Patient Data Explorer</span>
           </h1>
           <p className="text-sm text-slate-500">
-            Directly browse, query, filter, and inspect physical schemas across Raw, Bronze, Silver, and Gold Parquet layers.
+            Browse, query, filter, and inspect standardized patient records and schema layers across the clinical data lakehouse.
           </p>
         </div>
 

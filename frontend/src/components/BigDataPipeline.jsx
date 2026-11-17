@@ -34,7 +34,7 @@ export default function BigDataPipeline() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-3">
         <RefreshCw className="w-8 h-8 text-sky-600 animate-spin" />
-        <p className="text-sm font-medium text-slate-600">Retrieving PySpark Architecture & Benchmark Logs...</p>
+        <p className="text-sm font-medium text-slate-600">Retrieving Processing Architecture & Benchmark Logs...</p>
       </div>
     );
   }
@@ -43,9 +43,9 @@ export default function BigDataPipeline() {
     <div className="space-y-6">
       {/* Title */}
       <div>
-        <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Big Data Analytics: PySpark Lakehouse & Benchmarks</h1>
+        <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Processing Performance & Scalability Benchmarks</h1>
         <p className="text-sm text-slate-500">
-          Medallion architecture (Bronze → Silver → Gold) and empirical scalability benchmark up to 1,000,000 encounters.
+          Enterprise Medallion data pipeline (Bronze → Silver → Gold) and high-throughput scalability benchmarks up to 1,000,000 patient encounters.
         </p>
       </div>
 

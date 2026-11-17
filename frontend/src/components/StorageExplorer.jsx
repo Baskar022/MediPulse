@@ -58,10 +58,10 @@ export default function StorageExplorer() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
             <HardDrive className="w-6 h-6 text-sky-600" />
-            <span>Storage Lakehouse & Parquet Artifact Tree</span>
+            <span>Storage Management & Lakehouse Repository</span>
           </h1>
           <p className="text-sm text-slate-500">
-            Real-time file system inspection of Bronze/Silver/Gold Parquet partitions, serialized models, and JSON summaries.
+            Real-time inspection of standardized Parquet partitions, serialized AI models, and analytical data artifacts.
           </p>
         </div>
 

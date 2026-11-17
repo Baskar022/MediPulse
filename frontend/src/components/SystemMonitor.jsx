@@ -55,10 +55,10 @@ export default function SystemMonitor() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
             <Layers className="w-6 h-6 text-sky-600" />
-            <span>Platform Diagnostic & Spark JVM Monitor</span>
+            <span>System Health & Engine Telemetry</span>
           </h1>
           <p className="text-sm text-slate-500">
-            Real host runtime telemetry: CPU cores, Python compiler, PySpark cluster configuration, JVM status, and storage utilization.
+            Real host runtime telemetry: CPU cores, Python environment, engine configuration, JVM status, and storage utilization.
           </p>
         </div>
 

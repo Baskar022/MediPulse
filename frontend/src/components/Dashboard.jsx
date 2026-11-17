@@ -35,7 +35,7 @@ export default function Dashboard() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-3">
         <RefreshCw className="w-8 h-8 text-sky-600 animate-spin" />
-        <p className="text-sm font-medium text-slate-600">Querying Apache Spark SQL Gold Lakehouse Aggregations...</p>
+        <p className="text-sm font-medium text-slate-600">Retrieving Platform Healthcare Telemetry...</p>
       </div>
     );
   }
@@ -67,14 +67,14 @@ export default function Dashboard() {
       {/* Page Title & Context */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Hospital Executive Overview</h1>
+          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Platform Overview & Executive Telemetry</h1>
           <p className="text-sm text-slate-500">
-            Real-time population health telemetry derived from {kpis.total_encounters?.toLocaleString()} deduplicated patient encounters via Spark SQL.
+            Real-time clinical intelligence and population health telemetry derived from {kpis.total_encounters?.toLocaleString()} standardized patient encounters.
           </p>
         </div>
         <div className="flex items-center gap-2 text-xs font-medium text-slate-500 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-sm">
           <Layers className="w-4 h-4 text-sky-600" />
-          <span>Storage: Parquet Gold Layer</span>
+          <span>Data Layer: Standardized Encounters</span>
         </div>
       </div>
 
@@ -174,7 +174,7 @@ export default function Dashboard() {
               <h3 className="text-base font-bold text-slate-900">30-Day Readmission by Clinical Diagnosis</h3>
               <p className="text-xs text-slate-500">Grouped ICD-9 diagnostic categories</p>
             </div>
-            <span className="text-xs font-medium text-sky-700 bg-sky-50 px-2 py-1 rounded">Spark GroupBy</span>
+            <span className="text-xs font-medium text-sky-700 bg-sky-50 px-2 py-1 rounded">Clinical Grouping</span>
           </div>
           <div className="h-72 w-full">
             <ResponsiveContainer width="100%" height="100%">

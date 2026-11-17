@@ -50,7 +50,7 @@ export async function fetchStorageExplorer() {
   return res.json();
 }
 
-// 3. Interactive BDA Pipeline
+// 3. Data Processing Pipelines
 export async function fetchPipelineStages() {
   const res = await fetch(`${API_BASE}/api/pipeline/stages`);
   if (!res.ok) throw new Error('Failed to fetch pipeline stages');

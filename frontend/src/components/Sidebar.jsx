@@ -1,35 +1,35 @@
 import React from 'react';
 import {
-  Activity, Database, Brain, Users, BarChart3, ShieldAlert,
-  Table2, Cpu, HardDrive, Terminal, Presentation, PlaySquare,
-  Sparkles, Layers
+  Activity, Brain, Users, BarChart3,
+  Table2, Cpu, HardDrive, Terminal, PlaySquare,
+  Layers
 } from 'lucide-react';
 
-export default function Sidebar({ activeNav, setActiveNav, isDemoMode, setIsDemoMode }) {
+export default function Sidebar({ activeNav, setActiveNav }) {
   const navSections = [
     {
-      group: 'EXECUTIVE & CLINICAL',
+      group: 'CLINICAL INTELLIGENCE',
       items: [
-        { id: 'overview', label: 'Executive Overview', icon: BarChart3, badge: 'KPIs' },
+        { id: 'overview', label: 'Platform Overview', icon: BarChart3, badge: 'Live' },
         { id: 'predictor', label: 'Patient Risk Predictor', icon: Activity, badge: 'AI/SHAP' },
-        { id: 'population', label: 'Population Health', icon: Users, badge: null },
+        { id: 'population', label: 'Population Health', icon: Users, badge: 'Analytics' },
+        { id: 'transparency', label: 'Model Governance', icon: Brain, badge: 'Audits' },
       ]
     },
     {
-      group: 'BIG DATA ANALYTICS (BDA)',
+      group: 'DATA PLATFORM',
       items: [
-        { id: 'explorer', label: 'Data Lake Explorer', icon: Table2, badge: 'Parquet' },
-        { id: 'pipeline', label: 'Interactive BDA Pipeline', icon: PlaySquare, badge: 'Runner' },
-        { id: 'spark_sql', label: 'Spark SQL Workspace', icon: Terminal, badge: 'Queries' },
-        { id: 'benchmark', label: 'Scalability Benchmark', icon: Cpu, badge: '1M Rows' },
+        { id: 'explorer', label: 'Patient Data Explorer', icon: Table2, badge: 'Parquet' },
+        { id: 'spark_sql', label: 'Clinical Query Workspace', icon: Terminal, badge: 'SQL' },
       ]
     },
     {
-      group: 'GOVERNANCE & PLATFORM',
+      group: 'PLATFORM OPERATIONS',
       items: [
-        { id: 'transparency', label: 'Model & Fairness Audit', icon: Brain, badge: 'Curves' },
-        { id: 'storage', label: 'Storage & Lakehouse Tree', icon: HardDrive, badge: 'Files' },
-        { id: 'system', label: 'System & Spark Monitor', icon: Layers, badge: 'JVM' },
+        { id: 'pipeline', label: 'Data Processing', icon: PlaySquare, badge: 'Pipelines' },
+        { id: 'benchmark', label: 'Processing Performance', icon: Cpu, badge: 'Benchmarks' },
+        { id: 'storage', label: 'Storage Management', icon: HardDrive, badge: 'Lakehouse' },
+        { id: 'system', label: 'System Health', icon: Layers, badge: 'Telemetry' },
       ]
     }
   ];
@@ -45,34 +45,10 @@ export default function Sidebar({ activeNav, setActiveNav, isDemoMode, setIsDemo
           <div>
             <div className="flex items-center gap-1.5">
               <span className="text-base font-extrabold tracking-tight text-white">Medi<span className="text-sky-400">Pulse</span></span>
-              <span className="px-1.5 py-0.2 text-[10px] font-bold bg-sky-500/20 text-sky-300 rounded border border-sky-400/30">2.0</span>
             </div>
-            <p className="text-[10px] text-slate-400 font-mono tracking-wider">BDA LAKEHOUSE & AI</p>
+            <p className="text-[10px] text-slate-400 font-mono tracking-wider">HEALTHCARE AI PLATFORM</p>
           </div>
         </div>
-      </div>
-
-      {/* Guided Walkthrough Mode Toggle */}
-      <div className="p-3 bg-slate-950/50 border-b border-slate-800/80">
-        <button
-          onClick={() => {
-            setIsDemoMode(!isDemoMode);
-            if (!isDemoMode) setActiveNav('demo');
-          }}
-          className={`w-full py-2.5 px-3 rounded-lg text-xs font-bold transition flex items-center justify-between border ${
-            isDemoMode
-              ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white border-amber-400 shadow-md shadow-amber-500/20'
-              : 'bg-slate-800 hover:bg-slate-700 text-amber-300 border-amber-500/30'
-          }`}
-        >
-          <div className="flex items-center gap-2">
-            <Presentation className="w-4 h-4 text-amber-300" />
-            <span>Walkthrough Mode</span>
-          </div>
-          <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-black/30">
-            {isDemoMode ? 'Active' : 'Start'}
-          </span>
-        </button>
       </div>
 
       {/* Navigation Sections */}
@@ -84,14 +60,11 @@ export default function Sidebar({ activeNav, setActiveNav, isDemoMode, setIsDemo
             </div>
             {sec.items.map((item) => {
               const Icon = item.icon;
-              const isActive = activeNav === item.id && !isDemoMode;
+              const isActive = activeNav === item.id;
               return (
                 <button
                   key={item.id}
-                  onClick={() => {
-                    setActiveNav(item.id);
-                    setIsDemoMode(false);
-                  }}
+                  onClick={() => setActiveNav(item.id)}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-lg font-medium transition text-left ${
                     isActive
                       ? 'bg-sky-600 text-white shadow-sm font-semibold'
@@ -116,16 +89,16 @@ export default function Sidebar({ activeNav, setActiveNav, isDemoMode, setIsDemo
         ))}
       </nav>
 
-      {/* Footer Spark Cluster Indicator */}
+      {/* Footer Platform Status Indicator */}
       <div className="p-3 border-t border-slate-800 bg-slate-950/60 text-[11px] text-slate-400">
         <div className="flex items-center justify-between mb-1">
           <span className="flex items-center gap-1.5 font-medium text-slate-300">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            PySpark Local Cluster
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            Clinical Data Lakehouse
           </span>
-          <span className="text-[10px] font-mono text-slate-400">local[*]</span>
+          <span className="text-[10px] font-mono text-emerald-400">ONLINE</span>
         </div>
-        <p className="text-[10px] text-slate-400 truncate">Parquet Lakehouse: 69,990 Encounters</p>
+        <p className="text-[10px] text-slate-400 truncate">69,990 Standardized Encounters</p>
       </div>
     </aside>
   );

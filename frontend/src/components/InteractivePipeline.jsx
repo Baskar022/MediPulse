@@ -75,10 +75,10 @@ export default function InteractivePipeline() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
             <PlaySquare className="w-6 h-6 text-sky-600" />
-            <span>Interactive Apache PySpark Pipeline Console</span>
+            <span>Data Processing Pipelines</span>
           </h1>
           <p className="text-sm text-slate-500">
-            Execute, inspect, monitor, and audit live PySpark Medallion Lakehouse stages in real-time.
+            Execute, inspect, monitor, and audit healthcare data transformation and ingestion stages in real-time.
           </p>
         </div>
 
