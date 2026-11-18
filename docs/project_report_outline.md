@@ -1,6 +1,6 @@
 # MediPulse: Hospital Readmission Risk & Population Health Analytics Platform
 ## Academic Project Report & Technical Documentation
-### Satisfying Dual Curriculum: Big Data Analytics (BDA) & Artificial Intelligence / Machine Learning (AIML in Healthcare)
+### Curriculum: Artificial Intelligence / Machine Learning (AIML in Healthcare) & Clinical Data Engineering
 
 ---
 
